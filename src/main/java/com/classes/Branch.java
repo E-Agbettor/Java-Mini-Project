@@ -21,26 +21,28 @@ public class Branch {
         return customers;
     }
 
-    public boolean newCustomer(Customer customer, double initial_transaction) {
-        if (findCustomer(customer.getName(name)) >= 0) {
-            System.out.println("Customer is already on file. Try again!");
-            return false;
+    public boolean newCustomer(String customerName, double initialTransaction) {
+        if (findCustomer(customerName) == null) {
+            this.customers.add(new Customer(customerName, initialTransaction));
+            return true;
         }
-        customers.add(customer);
-        double initial_amount = initial_transaction;
-        customer.getTransactions().add(initial_amount);
-        return true;
+        return false;
     }
 
-    public boolean addCustomerTransaction(Customer customer, double transaction){
-
+    public boolean addCustomerTransaction(String customerName, double transaction){
+        Customer existingCustomer = findCustomer(customerName);
+        if(existingCustomer !=null){
+            existingCustomer.addTransaction(transaction);
+            return  true;
+        }
+        return false;
     }
 
     private Customer findCustomer(String customerName){
         for (int i = 0; i < customers.size(); i++) {
-            Customer customer = customers.get(i);
-            if (customer.getName().equals(customerName)) {
-                return customer;
+            Customer checkedCustomer = this.customers.get(i);
+            if (checkedCustomer.getName().equals(customerName)) {
+                return checkedCustomer;
             }
         }
         return null;

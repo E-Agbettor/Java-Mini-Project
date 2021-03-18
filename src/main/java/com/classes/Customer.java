@@ -8,9 +8,10 @@ public class Customer {
     private ArrayList<Double>transactions;
 
     //constructor
-    public Customer(String name, double transaction) {
+    public Customer(String name, double initialTtransaction) {
         this.customerName = name;
         transactions = new ArrayList<Double>();
+        addTransaction(initialTtransaction);
     }
     //getters
 
@@ -23,6 +24,6 @@ public class Customer {
     }
 
     public void addTransaction(double transaction){
-
+        this.transactions.add(transaction);
     }
 }
