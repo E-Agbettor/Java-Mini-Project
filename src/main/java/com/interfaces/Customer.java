@@ -4,7 +4,5 @@ import java.util.ArrayList;
 
 public interface Customer {
 
-    public void addTransaction();
-    public String getName();
-    public ArrayList<Double> getTransactions();
+    public void addTransaction(double transaction);
 }

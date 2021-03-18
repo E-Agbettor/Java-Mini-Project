@@ -1,11 +1,7 @@
 package com.interfaces;
 
-import java.util.ArrayList;
-
 public interface Branch {
-    public String getName();
-    public ArrayList<Customer> getCustomers();
-    public boolean newCustomer();
-    public boolean addCustomerTransaction();
-    public Customer findCustomer();
+    public boolean newCustomer(String customerName, double initialTransaction);
+    public boolean addCustomerTransaction(String customerName, double transaction);
+    public com.classes.Customer findCustomer(String customerName);
 }

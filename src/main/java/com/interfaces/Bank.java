@@ -6,7 +6,6 @@ import com.classes.Customer;
 import java.util.ArrayList;
 
 public interface Bank {
-
     //methods
     public boolean addBranch(String branchName);
 
